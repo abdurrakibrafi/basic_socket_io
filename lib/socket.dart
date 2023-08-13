@@ -17,7 +17,7 @@ class _SocketHomeState extends State<SocketHome> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(
+        title: const Text(
           'Web Socket Demo',
           style: TextStyle(
             fontSize: 25,
