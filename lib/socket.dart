@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:simple_gradient_text/simple_gradient_text.dart';
 import 'package:web_socket_channel/web_socket_channel.dart';
 
 class SocketHome extends StatefulWidget {
@@ -17,13 +18,14 @@ class _SocketHomeState extends State<SocketHome> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text(
+        title: GradientText(
           'Web Socket Demo',
-          style: TextStyle(
-            fontSize: 25,
-            fontWeight: FontWeight.bold,
-            color: Colors.purple,
-          ),
+          style: const TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
+          colors: const [
+            Colors.purpleAccent,
+            Colors.yellowAccent,
+            Colors.lightGreenAccent
+          ],
         ),
       ),
       body: Padding(
@@ -42,7 +44,10 @@ class _SocketHomeState extends State<SocketHome> {
             StreamBuilder(
                 stream: my_channel.stream,
                 builder: (context, snapshot) {
-                  return Text(snapshot.hasData ? '${snapshot.data}' : '');
+                  return Text(
+                    snapshot.hasData ? '${snapshot.data}' : '',
+                    style: const TextStyle(color: Colors.indigoAccent),
+                  );
                 })
           ],
         ),
