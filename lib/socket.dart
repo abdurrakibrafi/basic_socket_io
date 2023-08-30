@@ -42,13 +42,19 @@ class _SocketHomeState extends State<SocketHome> {
               height: 24,
             ),
             StreamBuilder(
-                stream: my_channel.stream,
-                builder: (context, snapshot) {
-                  return Text(
-                    snapshot.hasData ? '${snapshot.data}' : '',
-                    style: const TextStyle(color: Colors.indigoAccent),
-                  );
-                })
+              stream: my_channel.stream,
+              builder: (context, snapshot) {
+                return GradientText(
+                  snapshot.hasData ? '${snapshot.data}' : '',
+                  style: const TextStyle(fontSize: 20),
+                  colors: const [
+                    Colors.indigoAccent,
+                    Colors.green,
+                    Colors.deepPurple,
+                  ],
+                );
+              },
+            ),
           ],
         ),
       ),
